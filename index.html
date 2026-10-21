@@ -128,6 +128,27 @@ body{padding-top:118px}html{scroll-padding-top:116px}
 @media(max-width:800px){.purchase-layout{grid-template-columns:1fr;gap:38px;padding-block:32px 65px;max-width:580px}.purchase-visual{aspect-ratio:1.25;border-radius:30px}.purchase-device{width:95%}.purchase-copy h1{font-size:43px;letter-spacing:-1.5px;margin-bottom:18px}.purchase-copy>p{font-size:14px;margin-bottom:25px}.purchase-visual figcaption{left:22px;bottom:18px}.site-footer{padding-top:46px}.footer-atmosphere i:nth-child(1){width:175%;left:-70%;top:-160%}.footer-atmosphere i:nth-child(2){width:135%;right:-95%;top:-50%}}
 @media(max-width:420px){.purchase-layout{gap:30px;padding-block:25px 52px}.purchase-visual{border-radius:25px}.purchase-copy h1{font-size:37px}.purchase-copy>p{font-size:12px}.purchase-button.shop-link{padding:14px 13px;gap:10px;font-size:13px;min-height:60px}.purchase-button .platform-logo{width:25px;height:25px}.purchase-button .platform-logo[src$="/tmall.png"]{width:41px;height:25px}.purchase-note{font-size:9px}}
 @media(prefers-reduced-motion:reduce){.footer-atmosphere i{animation:none;will-change:auto}.purchase-button.shop-link{transition:none}}
+
+.room-illustration .room-device{overflow:visible;pointer-events:none}.product-news-device{width:100%;height:auto}
+.game-controls{display:flex;align-items:center;gap:20px}.game-pause{font:inherit;font-size:10px;background:none;border:0;color:#fff;padding:3px 0}.game-pause:hover{color:var(--lime)}
+.tennis-surface{background:#37bda2;--racket-x:50%;--racket-y:79%;--ball-x:50%;--ball-y:29%;--ball-scale:.5;--landing-x:50%}
+.tennis-surface:focus-visible{outline:3px solid var(--purple);outline-offset:6px}
+.tennis-surface.is-playing{touch-action:none;cursor:none}
+.tennis-hud{position:absolute;left:18px;right:18px;top:16px;display:flex;align-items:center;justify-content:space-between;pointer-events:none;color:#fff;z-index:2;font-size:12px}
+.tennis-hud>span{background:#253f6480;border:1px solid #ffffff3d;padding:7px 13px;border-radius:24px;backdrop-filter:blur(8px)}.tennis-hud b{font-size:18px;margin-left:9px;font-variant-numeric:tabular-nums}
+.tennis-ball{position:absolute;left:var(--ball-x);top:var(--ball-y);width:32px;height:32px;transform:translate(-50%,-50%) scale(var(--ball-scale));z-index:4;pointer-events:none;filter:drop-shadow(0 2px 5px #366b6366)}.tennis-ball svg{width:100%;height:100%}
+.tennis-ball-shadow{position:absolute;width:28px;height:8px;border-radius:50%;background:#163f6655;left:var(--ball-x);top:calc(var(--ball-y) + 8%);transform:translate(-50%,-50%) scale(var(--ball-scale));pointer-events:none;z-index:1;filter:blur(2px)}
+.tennis-landing{position:absolute;left:var(--landing-x);top:84%;width:68px;height:20px;border:2px solid #efffc38c;border-radius:50%;transform:translate(-50%,-50%);pointer-events:none;opacity:0}.is-playing .tennis-landing{opacity:1}
+.tennis-racket{position:absolute;left:var(--racket-x);top:var(--racket-y);width:85px;height:110px;transform:translate(-59%,-35%);filter:drop-shadow(0 5px 5px #2543683b);pointer-events:none;z-index:5}.tennis-racket svg{width:100%;height:100%;transform-origin:33% 90%}
+.tennis-near-player{transform:translateX(var(--player-shift,0px))}
+.tennis-overlay{position:absolute;inset:0;z-index:7;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:15px;background:#20366a26;backdrop-filter:blur(1px)}
+.tennis-start{border:0;border-radius:40px;background:var(--lime);color:#2c2544;font-size:17px;font-weight:700;padding:17px 29px;display:flex;align-items:center;gap:23px;box-shadow:0 7px 24px #243d6333}.tennis-start:hover{background:#d4ff78}.tennis-start:focus-visible{outline-color:white}.tennis-start span{font-size:24px;font-weight:400}.tennis-overlay p{background:#fffdf1df;border-radius:20px;color:#4c3c66;font-size:11px;padding:5px 13px}
+.tennis-caption{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:13px 9px 16px;color:#ece0ff}.tennis-caption .game-status{font-size:11px;min-height:0;text-align:left;padding:0;color:inherit}.tennis-caption>span{font-size:10px;white-space:nowrap;color:#dac9f1}
+.tennis-hit .tennis-racket svg{animation:tennis-swing .32s ease-out}.tennis-hit .game-feedback{animation:hit-feedback .5s ease-out}.tennis-surface .game-feedback{top:22%;bottom:auto;right:17%;font-size:26px;z-index:6;color:white}
+@keyframes tennis-swing{0%{transform:rotate(-28deg)}55%{transform:rotate(32deg)}100%{transform:rotate(0)}}
+@media(max-width:800px){.tennis-hud{left:12px;right:12px;top:11px;font-size:10px}.tennis-hud>span{padding:5px 10px}.tennis-hud b{font-size:15px;margin-left:6px}.tennis-racket{width:64px;height:83px}.tennis-ball{width:25px;height:25px}.tennis-start{font-size:14px;padding:12px 23px;gap:18px}.tennis-overlay p{font-size:9px}.tennis-caption{align-items:flex-start;flex-direction:column;gap:5px;padding:11px 4px 13px}.tennis-caption .game-status{font-size:10px}.tennis-caption>span{font-size:9px}.game-pause{font-size:9px}.game-controls{gap:16px}.tennis-surface .game-feedback{font-size:20px}}
+@media(hover:none),(pointer:coarse){.tennis-caption>span{display:none}}
+@media(prefers-reduced-motion:reduce){.tennis-hit .tennis-racket svg,.tennis-hit .game-feedback{animation:none}.tennis-overlay{backdrop-filter:none}.tennis-near-player{transform:none}}
 </style></head><body><a class="skip-link" href="#main">跳至内容</a><div id="app"></div><div class="toast" id="toast" role="status" aria-live="polite"></div><script type="module">// 正式素材、联系方式及外部渠道统一在此替换。空链接会显示未开放状态。
 const brand = {
   name: '灵境筑梦',
@@ -303,19 +324,41 @@ const faqs = [
 ];
 
 
+let productIllustrationSerial = 0;
+
+function tennisCourt(interactive = false) {
+  return `<rect width="800" height="440" fill="#b0eaf0"/>
+    <path d="M0 108h800v332H0Z" fill="#37bda2"/>
+    <path d="M0 68h800v49H0Z" fill="#78d5bd"/><path d="M0 89h800m-740-18v46m62-46v46m62-46v46m62-46v46m62-46v46m62-46v46m62-46v46m62-46v46m62-46v46m62-46v46m62-46v46m62-46v46" stroke="#e5fff0" stroke-width="2" opacity=".6"/>
+    <path d="m276 119 248 0 208 321H68Z" fill="#429bd6"/>
+    <path d="m290 133 220 0 172 287H118Z" stroke="#fffbed" stroke-width="3"/>
+    <path d="m313 133-144 287m318-287 144 287M244 210h312M194 302h412M400 133v77m0 92v118" stroke="#fffbed" stroke-width="2.5"/>
+    <g class="tennis-far-player"><ellipse cx="400" cy="157" rx="19" ry="5" fill="#257e9f" opacity=".35"/><circle cx="400" cy="105" r="10" fill="#e6b092"/><path d="M389 119q11-7 22 0l5 24h-32Z" fill="#fff8e8"/><path d="m391 143-5 15m22-15 6 15" stroke="#43316b" stroke-width="7" stroke-linecap="round"/><path d="m390 125-15-9m33 9 13-14" stroke="#e6b092" stroke-width="6" stroke-linecap="round"/><path d="m422 113 10-13" stroke="#49346c" stroke-width="4"/><ellipse cx="437" cy="94" rx="10" ry="14" transform="rotate(25 437 94)" fill="#d8fcba" stroke="#743cf2" stroke-width="3"/><path d="m432 85 8 19m-11-10 17-1" stroke="#fff" stroke-width="1.2"/></g>
+    <path d="M176 248h448v28H176Z" fill="#d8edee" fill-opacity=".45"/><path d="M176 249h448m-448 10h448m-448 10h448m-428-21v29m20-29v29m20-29v29m20-29v29m20-29v29m20-29v29m20-29v29m20-29v29m20-29v29m20-29v29m20-29v29m20-29v29m20-29v29m20-29v29m20-29v29m20-29v29m20-29v29m20-29v29m20-29v29m20-29v29m20-29v29" stroke="#f3fff3" stroke-width="1.2" opacity=".9"/>
+    <path d="M172 244v38m456-38v38" stroke="#40575e" stroke-width="6" stroke-linecap="round"/><path d="M172 247q228 10 456 0" stroke="#fff" stroke-width="4"/>
+    <g class="tennis-near-player"><ellipse cx="372" cy="402" rx="34" ry="8" fill="#246f9d" opacity=".3"/><circle cx="373" cy="323" r="14" fill="#f2c5a1"/><path d="M360 341q14-9 28 0l9 34h-46Z" fill="#743cf2"/><path d="m360 375-7 25m32-25 11 25" stroke="#35305e" stroke-width="10" stroke-linecap="round"/><path d="m361 348-18 7m44-7 22-17" stroke="#f2c5a1" stroke-width="8" stroke-linecap="round"/>${interactive ? '' : '<path d="m411 333 13-16" stroke="#3d2d65" stroke-width="6" stroke-linecap="round"/><ellipse cx="436" cy="302" rx="15" ry="21" transform="rotate(35 436 302)" fill="#d7f7e4" stroke="#743cf2" stroke-width="5"/><path d="m429 287 17 31m-23-21 27 10m-21-2 21 9" stroke="#fff" stroke-width="1.5"/>'}</g>
+    ${interactive ? '' : '<path d="M495 221q-18-33-49-35" stroke="#fffdf0" stroke-width="3" stroke-linecap="round" opacity=".7"/><circle cx="502" cy="234" r="10" fill="#e6ff65"/><path d="m497 227 10 14m-12-7 16-1" stroke="#fff" stroke-width="1.4"/>'}
+    <rect x="26" y="22" width="83" height="29" rx="14" fill="#fffdf1" opacity=".85"/><text x="67" y="42" fill="#4d3187" font-family="system-ui, sans-serif" font-size="16" font-weight="700" text-anchor="middle">网球</text>`;
+}
+
+function tennisRacket() {
+  return `<svg viewBox="0 0 100 130" fill="none"><path d="m32 117 18-47" stroke="#31224b" stroke-width="13" stroke-linecap="round"/><path d="m33 114 10-25" stroke="#c8fa6c" stroke-width="10" stroke-linecap="round"/><ellipse cx="59" cy="45" rx="29" ry="37" transform="rotate(19 59 45)" fill="#ffffff2e" stroke="#f9fff0" stroke-width="7"/><ellipse cx="59" cy="45" rx="33" ry="41" transform="rotate(19 59 45)" stroke="#743cf2" stroke-width="4"/><path d="m50 13-18 49m30-52-21 64m32-58-20 62m29-51-16 49M40 24l43 15M35 37l49 17M32 51l45 16" stroke="#fffdf1" stroke-width="1.5"/></svg>`;
+}
+
 function roomArt(variant = 'family') {
   const people = variant === 'party'
     ? '<circle cx="135" cy="239" r="24" fill="#d9a68b"/><path d="M113 270q25-17 46 0l13 85H98Z" fill="#ffb13b"/><path d="m114 288-39-34m70 34 24-52" stroke="#d9a68b" stroke-width="16" stroke-linecap="round"/><path d="m113 353-11 90m48-90 16 90" stroke="#45435d" stroke-width="21" stroke-linecap="round"/><circle cx="243" cy="201" r="26" fill="#bf866e"/><path d="M220 233q24-14 46 0l17 110h-80Z" fill="#9856ee"/><path d="m223 249-26-47m67 47 37-37" stroke="#bf866e" stroke-width="17" stroke-linecap="round"/><path d="m224 342-12 104m49-104 19 104" stroke="#414354" stroke-width="23" stroke-linecap="round"/>'
     : '<ellipse cx="191" cy="467" rx="97" ry="13" fill="#bcb09d" opacity=".22"/><circle cx="153" cy="220" r="25" fill="#e0ae90"/><path d="M128 218q-2-35 30-28 24 4 23 25l-16-11-36 14Z" fill="#373242"/><path d="M131 250q24-16 48 0l16 105h-81Z" fill="#7040ec"/><path d="m134 265-33-41-16-40m88 81 28-25 20-42" stroke="#e0ae90" stroke-width="16" stroke-linecap="round"/><path d="m134 354-14 104m56-104 20 104" stroke="#34334c" stroke-width="21" stroke-linecap="round"/><path d="M106 462h22m57 0h24" stroke="#faf8f2" stroke-width="13" stroke-linecap="round"/><circle cx="255" cy="286" r="19" fill="#e2b495"/><path d="M236 284q0-25 21-22 16 2 17 18l-17-8-21 12Z" fill="#403644"/><path d="M239 309q18-12 34 0l14 69h-62Z" fill="#bcf33f"/><path d="m242 321-19-26m44 26 25-33 12-30" stroke="#e2b495" stroke-width="12" stroke-linecap="round"/><path d="m241 377-6 79m33-79 15 79" stroke="#9b8274" stroke-width="16" stroke-linecap="round"/><path d="M225 461h19m31 0h19" stroke="#fff8e8" stroke-width="10" stroke-linecap="round"/>';
-  return `<svg class="room-illustration" viewBox="0 0 900 560" fill="none" aria-hidden="true"><rect width="900" height="560" rx="30" fill="#cbb8ff"/><path d="M0 397h900v163H0Z" fill="#ffe0b3"/><path d="M0 397h900" stroke="#b597ed"/><rect x="27" y="50" width="217" height="249" rx="90" fill="#fff4be"/><path d="M130 51v248M30 173h212" stroke="#ffe59b" stroke-width="8"/><path d="M41 49v252M228 49v252" stroke="#ffbd67" stroke-width="23"/><rect x="293" y="75" width="532" height="295" rx="13" fill="#2b293d"/><rect x="307" y="90" width="503" height="263" rx="4" fill="#65d8df"/><path d="M307 289 405 189 493 265 598 145 706 267 810 204v149H307Z" fill="#3bbfa8"/><path d="m460 353 100-178 121 178Z" fill="#ecffb4"/><path d="m528 353 43-95 46 95Z" fill="#b7f04b"/><circle cx="681" cy="148" r="31" fill="#ffe16b"/><circle cx="458" cy="203" r="17" fill="#773cf1"/><circle cx="601" cy="237" r="17" fill="#bdfa38"/><circle cx="720" cy="285" r="17" fill="#773cf1"/><path d="m444 203 9 9 17-20m117 45 10 10 18-21m110 51 10 10 18-21" stroke="#fff" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/><path d="M365 383h391" stroke="#f7f3ec" stroke-width="20" stroke-linecap="round"/><rect x="337" y="391" width="445" height="75" rx="10" fill="#eead78"/><path d="M485 399v58m145-58v58" stroke="#d98c60"/><path d="M357 467v18m405-18v18" stroke="#897965" stroke-width="9"/><path d="M542 357q0-10 12-12l42-8q8-1 15 3l20 11q7 4 7 13v17q0 8-9 10l-43 9q-8 2-16-2l-21-11q-7-4-7-10Z" fill="#faf8f4"/><path d="m577 366 60-12v28q0 7-9 9l-43 9q-5 1-8-1Z" fill="#dad0e8"/><ellipse cx="604" cy="377" rx="7" ry="9" fill="#3e354f"/><circle cx="605" cy="375" r="3" fill="#bdfa38"/><path d="M851 414v-75" stroke="#8f9f77" stroke-width="7"/><path d="M851 384q-48-5-34-36 29-3 34 36m0-28q29-35 45-11-9 30-45 11" fill="#66ba69"/><path d="M829 410h43l-7 45h-29Z" fill="#f7f0e2"/>${people}<path d="M54 508h757" stroke="#d6c8b6" stroke-width="2"/></svg>`;
+  return `<svg class="room-illustration" viewBox="0 0 900 560" fill="none" aria-hidden="true"><rect width="900" height="560" rx="30" fill="#cbb8ff"/><path d="M0 397h900v163H0Z" fill="#ffe0b3"/><path d="M0 397h900" stroke="#b597ed"/><rect x="27" y="50" width="217" height="249" rx="90" fill="#fff4be"/><path d="M130 51v248M30 173h212" stroke="#ffe59b" stroke-width="8"/><path d="M41 49v252M228 49v252" stroke="#ffbd67" stroke-width="23"/><rect x="293" y="75" width="532" height="295" rx="13" fill="#2b293d"/><svg class="tv-tennis" x="307" y="90" width="503" height="263" viewBox="0 0 800 440" preserveAspectRatio="none" style="width:503px;height:263px">${tennisCourt()}</svg><path d="M365 383h391" stroke="#f7f3ec" stroke-width="20" stroke-linecap="round"/><rect x="337" y="391" width="445" height="75" rx="10" fill="#eead78"/><path d="M485 399v58m145-58v58" stroke="#d98c60"/><path d="M357 467v18m405-18v18" stroke="#897965" stroke-width="9"/>${purchaseArt('room-device', 'x="520" y="292" width="150" height="120" style="width:150px;height:120px"')}<path d="M851 414v-75" stroke="#8f9f77" stroke-width="7"/><path d="M851 384q-48-5-34-36 29-3 34 36m0-28q29-35 45-11-9 30-45 11" fill="#66ba69"/><path d="M829 410h43l-7 45h-29Z" fill="#f7f0e2"/>${people}<path d="M54 508h757" stroke="#d6c8b6" stroke-width="2"/></svg>`;
 }
 
 function gameArt() {
-  return `<svg class="game-landscape" viewBox="0 0 800 440" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="800" height="440" fill="#61d6e0"/><circle cx="655" cy="93" r="48" fill="#ffe46c"/><path d="m0 294 129-152 174 153L482 98l183 188L800 158v282H0Z" fill="#2fbf9f"/><path d="m0 352 219-116 208 104 177-111 196 122v89H0Z" fill="#18977d"/><path d="m131 440 258-228 267 228Z" fill="#e1ff9c"/><path d="m270 440 122-174 129 174Z" fill="#acf247"/><path d="M49 378q64-33 111-2m530-14q44-39 87-15" fill="none" stroke="#c5f376" stroke-width="8" stroke-linecap="round"/><g class="game-avatar"><circle cx="392" cy="253" r="13" fill="#f7edda"/><path d="M379 271h26l9 45h-43Z" fill="#7435ec"/><path d="m379 315-8 34m32-34 12 34" stroke="#443a70" stroke-width="10" stroke-linecap="round"/><path class="avatar-arm" d="m402 279 24-18 11-23" fill="none" stroke="#f7edda" stroke-width="10" stroke-linecap="round"/><path d="m379 279-20 10" stroke="#f7edda" stroke-width="10" stroke-linecap="round"/></g></svg>`;
+  return `<svg class="game-landscape tennis-court" viewBox="0 0 800 440" fill="none" preserveAspectRatio="none" aria-hidden="true">${tennisCourt(true)}</svg>`;
 }
 
-function purchaseArt() {
-  return `<svg class="purchase-device" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 800" fill="none" role="img" aria-labelledby="moviwi-product-title moviwi-product-desc">
+function purchaseArt(className = 'purchase-device', attributes = '') {
+  const instance = ++productIllustrationSerial;
+  return `<svg class="${className}" ${attributes} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 800" fill="none" role="img" aria-labelledby="moviwi-product-title moviwi-product-desc">
   <title id="moviwi-product-title">Moviwi 产品插画</title>
   <desc id="moviwi-product-desc">参考产品照片绘制的银色双层设备，保留左侧散热格栅、上层黑色双镜头面板和下层品牌面板。</desc>
   <defs>
@@ -379,13 +422,13 @@ function purchaseArt() {
     <use href="#moviwi-product-camera" transform="translate(714 321) rotate(17)"/>
     <use href="#moviwi-product-camera" transform="translate(837 282) rotate(17) scale(.93)"/>
   </g>
-</svg>`;
+</svg>`.replaceAll('moviwi-product-', `moviwi-product-${instance}-`);
 }
 
 function homeMarkup({ button, news, newsCard }) {
   return `<main id="main">
     <section class="product-hero"><div class="container product-hero-grid"><div class="product-hero-copy"><p class="product-type">家庭体感游戏机</p><h1>客厅，就是<br>全家的<span>游戏场。</span></h1><p>用身体参与游戏，<br>把一家人的快乐，放到同一块屏幕上。</p><div class="hero-buttons">${button('#play', '看看怎么玩', 'button-dark')}${button('/buy', '购买渠道', 'button-outline')}</div></div><figure class="hero-room">${roomArt()}<figcaption>产品外观与游戏画面为示意</figcaption></figure></div></section>
-    <section class="play-section" id="play"><div class="container"><div class="play-heading"><h2>挥挥手，<br>游戏就有回应。</h2><p class="game-instruction">移动鼠标或触摸画面，试着碰到光点。</p></div><div class="game-frame"><div class="game-topbar"><span>体感互动示意</span><button class="game-reset" data-game-reset aria-label="重新开始互动演示">重新开始 ↻</button></div><div class="play-surface" aria-label="体感互动演示：碰到三个光点">${gameArt()}<canvas class="game-trail" aria-hidden="true"></canvas>${[[22, 34], [62, 22], [77, 63]].map(([x, y], i) => `<button class="game-target" data-game-target="${i}" style="left:${x}%;top:${y}%" aria-label="击中${['左侧', '上方', '右侧'][i]}光点" aria-pressed="false"><span></span></button>`).join('')}<span class="game-hand" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M16 26V13q0-4 4-4t4 4v9-14q0-4 4-4t4 4v14-9q0-4 4-4t4 4v17q0 12-11 15H19q-5-1-8-6L4 25q-2-4 2-6t7 3l3 4Z" fill="#fff9e9" stroke="#7435ec" stroke-width="2"/></svg></span><div class="game-feedback" aria-hidden="true">漂亮！</div></div><p class="game-status" role="status" aria-live="polite">试着碰到光点</p></div></div></section>
+    <section class="play-section" id="play"><div class="container"><div class="play-heading"><h2>挥挥手，<br>来一局网球。</h2><p class="game-instruction">移动鼠标或手指挥拍，试着把球打回去。</p></div><div class="game-frame"><div class="game-topbar"><span>体感网球示意</span><div class="game-controls"><button class="game-pause" data-game-pause hidden>暂停</button><button class="game-reset" data-game-reset aria-label="重新开始网球演示">重新开始 ↻</button></div></div><div class="play-surface tennis-surface" role="group" tabindex="0" aria-label="体感网球互动演示" aria-describedby="tennis-instructions" data-tennis-state="idle" data-hits="0">${gameArt()}<div class="tennis-hud" aria-hidden="true"><span>连续回球 <b data-tennis-score>0</b></span><span class="tennis-best">最佳 <b data-tennis-best>0</b></span></div><div class="tennis-landing" aria-hidden="true"></div><div class="tennis-ball-shadow" aria-hidden="true"></div><div class="tennis-ball" aria-hidden="true"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="17" fill="#e6ff65"/><path d="M8 7c14 6 19 18 21 27M6 30c5-14 15-22 27-23" stroke="#fffef0" stroke-width="2.2" fill="none"/></svg></div><span class="tennis-racket" aria-hidden="true">${tennisRacket()}</span><div class="game-feedback" aria-hidden="true">漂亮！</div><div class="tennis-overlay"><button class="tennis-start" data-tennis-start>开始接球 <span aria-hidden="true">↗</span></button><p>用鼠标或触摸代替身体挥拍</p></div></div><div class="tennis-caption"><p class="game-status" role="status" aria-live="polite">准备好，来一场轻松的对打。</p><span id="tennis-instructions">方向键移动 · 空格挥拍</span></div></div></div></section>
     <section class="family-section section-space"><div class="container"><h2>一个人玩，<br>还是全家一起？</h2><div class="family-scenes"><figure class="family-main">${roomArt()}<figcaption>亲子同玩</figcaption></figure><figure class="family-small">${roomArt('party')}<figcaption>周末聚会</figcaption></figure><div class="family-caption"><p>晚饭后活动一下，<br>周末和朋友来一场。<br>留点时间，一起玩。</p></div></div></div></section>
     <section class="connection-section"><div class="container connection-layout"><div class="connection-sticky"><h2>从电视前，<br>开始第一局。</h2><div class="connection-scene" data-connection="connected">${roomArt()}<div class="connection-highlight" aria-hidden="true"></div></div></div><div class="connection-copy"><article class="connection-step" data-connection="connected"><h3>连上电视。</h3><p>把设备放到电视附近，让客厅成为游戏空间。</p></article><article class="connection-step" data-connection="ready"><h3>站到屏幕前。</h3><p>留出活动空间，准备加入游戏。</p></article><article class="connection-step" data-connection="playing"><h3>选个游戏，一起开始。</h3><p>具体连接和操作说明，后续将在教程中心更新。</p>${button('/support', '查看教程', 'button-lime')}</article></div></div></section>
     <section class="home-updates container"><div class="section-heading"><h2>最新动态</h2>${button('/news', '查看全部', 'button-text')}</div><div class="news-grid">${news.slice(0, 3).map(newsCard).join('')}</div></section>
@@ -394,98 +437,157 @@ function homeMarkup({ button, news, newsCard }) {
 }
 
 
-const pointerMedia = matchMedia('(hover: hover) and (pointer: fine)');
 const motionMedia = matchMedia('(prefers-reduced-motion: reduce)');
 const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
 
 function mountInteractions(root) {
-  const controller = new AbortController();
-  const { signal } = controller;
-  const surface = root.querySelector('.play-surface');
-  const targets = [...root.querySelectorAll('[data-game-target]')];
-  const canvas = root.querySelector('.game-trail');
-  const ctx = canvas?.getContext('2d');
+  const surface = root.querySelector('.tennis-surface');
+  if (!surface) return () => {};
+  const controller = new AbortController(), {signal} = controller;
+  const ball = surface.querySelector('.tennis-ball');
+  const startButton = surface.querySelector('[data-tennis-start]');
+  const overlay = surface.querySelector('.tennis-overlay');
+  const pauseButton = root.querySelector('[data-game-pause]');
   const status = root.querySelector('.game-status');
-  const hits = new Set();
-  const points = [];
-  let frame = 0, hitTimer = 0;
-  let size = { width: 0, height: 0 };
-  const motion = () => !motionMedia.matches;
-  const resizeCanvas = () => {
-    if (!canvas || !ctx) return;
-    const rect = surface.getBoundingClientRect();
-    size = { width: rect.width, height: rect.height };
-    const ratio = Math.min(devicePixelRatio || 1, 2);
-    canvas.width = Math.round(rect.width * ratio); canvas.height = Math.round(rect.height * ratio);
-    ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+  const scoreLabel = surface.querySelector('[data-tennis-score]');
+  const bestLabel = surface.querySelector('[data-tennis-best]');
+  const landingPoints = [.32, .7, .42, .64, .26, .55];
+  let state = 'idle', phase = 'incoming', hits = 0, best = 0, frame = 0, swingTimer = 0;
+  let progress = 0, previousTime = 0, targetX = .5, returnX = .5;
+  let ballX = .5, ballY = .29, racketX = .5, racketY = .79, hitX = .5, hitY = .7;
+
+  const setState = value => {
+    state = value; surface.dataset.tennisState = value;
+    surface.classList.toggle('is-playing', value === 'playing');
+    overlay.hidden = value === 'playing';
+    pauseButton.hidden = value !== 'playing';
   };
-  const draw = () => {
-    frame = 0;
-    if (!ctx) return;
-    ctx.clearRect(0, 0, size.width, size.height);
-    const now = performance.now();
-    while (points.length && now - points[0].time > 350) points.shift();
-    points.forEach((point, index) => {
-      const last = points[index - 1];
-      if (!last) return;
-      ctx.globalAlpha = (1 - (now - point.time) / 350) * .65;
-      ctx.strokeStyle = '#f9f3cd'; ctx.lineWidth = 6; ctx.lineCap = 'round';
-      ctx.beginPath(); ctx.moveTo(last.x, last.y); ctx.lineTo(point.x, point.y); ctx.stroke();
-    });
-    ctx.globalAlpha = 1;
-    if (points.length && motion()) frame = requestAnimationFrame(draw);
+  const position = (x, y, scale = 1) => {
+    ballX = x; ballY = y;
+    surface.style.setProperty('--ball-x', `${x * 100}%`);
+    surface.style.setProperty('--ball-y', `${y * 100}%`);
+    surface.style.setProperty('--ball-scale', scale);
+    surface.style.setProperty('--landing-x', `${targetX * 100}%`);
+    ball.dataset.direction = phase;
   };
-  const hit = (button) => {
-    if (!button || hits.has(button.dataset.gameTarget)) return;
-    hits.add(button.dataset.gameTarget);
-    button.classList.add('is-hit'); button.setAttribute('aria-pressed', 'true');
-    surface.classList.remove('target-hit'); void surface.offsetWidth; surface.classList.add('target-hit');
-    clearTimeout(hitTimer); hitTimer = setTimeout(() => surface.classList.remove('target-hit'), 550);
-    const complete = hits.size === targets.length;
-    status.textContent = complete ? '全部命中！可以重新开始。' : '命中！试试下一个光点。';
-    surface.classList.toggle('is-complete', complete);
+  const moveRacket = (x, y) => {
+    racketX = clamp(x, .07, .93); racketY = clamp(y, .15, .93);
+    surface.style.setProperty('--racket-x', `${racketX * 100}%`);
+    surface.style.setProperty('--racket-y', `${racketY * 100}%`);
+    surface.style.setProperty('--player-shift', `${(racketX - .5) * 390}px`);
   };
-  const locate = (event) => {
-    const rect = surface.getBoundingClientRect();
-    const x = clamp(event.clientX - rect.left, 0, rect.width), y = clamp(event.clientY - rect.top, 0, rect.height);
-    surface.style.setProperty('--hand-x', `${x}px`); surface.style.setProperty('--hand-y', `${y}px`);
-    if (motion()) {
-      surface.style.setProperty('--arm-angle', `${clamp((x / rect.width - .5) * 80, -35, 35)}deg`);
-      surface.classList.add('is-tracking'); points.push({ x, y, time: performance.now() });
-      if (points.length > 50) points.shift();
-      if (!frame) frame = requestAnimationFrame(draw);
+  const nearBall = () => {
+    const box = surface.getBoundingClientRect();
+    return Math.hypot((racketX - ballX) * box.width, (racketY - ballY) * box.height) < Math.max(31, box.width * .065);
+  };
+  const staticBall = () => {
+    phase = 'incoming'; progress = .8;
+    targetX = landingPoints[hits % landingPoints.length];
+    position(targetX, .65, 1.05);
+  };
+  const strike = () => {
+    if (state !== 'playing' || phase !== 'incoming' || !nearBall() || (!motionMedia.matches && progress < .3)) return false;
+    hits++; best = Math.max(best, hits);
+    scoreLabel.textContent = hits; bestLabel.textContent = best; surface.dataset.hits = hits;
+    status.textContent = `漂亮！已连续回球 ${hits} 次。`;
+    surface.classList.remove('tennis-hit'); void surface.offsetWidth; surface.classList.add('tennis-hit');
+    clearTimeout(swingTimer); swingTimer = setTimeout(() => surface.classList.remove('tennis-hit'), 350);
+    if (motionMedia.matches) staticBall();
+    else {
+      hitX = ballX; hitY = ballY; returnX = clamp(.5 + (racketX - .5) * .22, .36, .64);
+      phase = 'outgoing'; progress = 0;
     }
-    targets.forEach((target) => {
-      const box = target.getBoundingClientRect();
-      if (Math.hypot(event.clientX - box.left - box.width / 2, event.clientY - box.top - box.height / 2) < box.width * .58) hit(target);
-    });
+    return true;
   };
-  if (surface) {
-    surface.addEventListener('pointermove', (event) => {
-      if (event.pointerType === 'mouse' && pointerMedia.matches) locate(event);
-      else if (event.pointerType === 'touch' && event.buttons) locate(event);
-    }, { signal, passive: true });
-    surface.addEventListener('pointerdown', locate, { signal, passive: true });
-    const leave = () => { surface.classList.remove('is-tracking'); surface.style.removeProperty('--arm-angle'); };
-    surface.addEventListener('pointerleave', leave, { signal });
-    surface.addEventListener('pointercancel', leave, { signal });
-    surface.addEventListener('pointerup', (event) => { if (event.pointerType === 'touch') leave(); }, { signal });
-    targets.forEach((button) => button.addEventListener('click', () => hit(button), { signal }));
-    root.querySelector('[data-game-reset]').addEventListener('click', () => {
-      hits.clear(); targets.forEach((target) => { target.classList.remove('is-hit'); target.setAttribute('aria-pressed', 'false'); });
-      surface.classList.remove('is-complete', 'target-hit'); status.textContent = '试着碰到光点';
-    }, { signal });
-  }
-  const resize = canvas ? new ResizeObserver(resizeCanvas) : null;
-  if (canvas) resize.observe(surface);
-  resizeCanvas();
+  const stopFrame = () => {cancelAnimationFrame(frame); frame = 0; previousTime = 0;};
+  const finish = () => {
+    stopFrame(); setState('finished');
+    startButton.innerHTML = '再来一局 <span aria-hidden="true">↗</span>';
+    status.textContent = hits ? `这一局连续回球 ${hits} 次，再试一次？` : '差一点！移动球拍接住来球，再试一次。';
+  };
+  const tick = now => {
+    frame = 0;
+    if (state !== 'playing' || motionMedia.matches) return;
+    const elapsed = previousTime ? Math.min((now - previousTime) / 1000, .05) : 0;
+    previousTime = now;
+    if (phase === 'incoming') {
+      progress += elapsed / Math.max(1.8, 2.8 - hits * .065);
+      const t = Math.min(progress, 1);
+      position(.5 + (targetX - .5) * t, .28 + .57 * t - Math.sin(t * Math.PI) * .12, .42 + t * .95);
+      strike();
+      if (phase === 'incoming' && progress >= 1) {finish(); return;}
+    } else {
+      progress += elapsed / .9;
+      const t = Math.min(progress, 1), ease = 1 - Math.pow(1 - t, 1.25);
+      position(hitX + (returnX - hitX) * ease, hitY + (.28 - hitY) * ease - Math.sin(t * Math.PI) * .18, 1.2 - ease * .8);
+      if (progress >= 1) {
+        phase = 'incoming'; progress = 0; targetX = landingPoints[hits % landingPoints.length];
+      }
+    }
+    if (state === 'playing') frame = requestAnimationFrame(tick);
+  };
+  const start = () => {
+    if (state !== 'paused') {
+      hits = 0; progress = 0; phase = 'incoming'; targetX = .5;
+      scoreLabel.textContent = '0'; surface.dataset.hits = '0'; position(.5,.28,.42);
+    }
+    setState('playing');
+    status.textContent = motionMedia.matches ? '移动球拍靠近网球，点击或按空格回球。' : '看准来球，移动球拍把它打回去。';
+    surface.focus({preventScroll:true}); stopFrame();
+    if (motionMedia.matches) staticBall(); else frame = requestAnimationFrame(tick);
+  };
+  const pause = () => {
+    if (state !== 'playing') return;
+    stopFrame(); setState('paused');
+    startButton.innerHTML = '继续接球 <span aria-hidden="true">↗</span>';
+    status.textContent = '已暂停，准备好再继续。';
+  };
+  const reset = () => {
+    stopFrame(); clearTimeout(swingTimer);
+    hits = 0; progress = 0; phase = 'incoming'; targetX = .5;
+    surface.dataset.hits = '0'; scoreLabel.textContent = '0'; surface.classList.remove('tennis-hit'); setState('idle');
+    moveRacket(.5,.79); position(.5,.29,.5);
+    startButton.innerHTML = '开始接球 <span aria-hidden="true">↗</span>';
+    status.textContent = '准备好，来一场轻松的对打。';
+  };
+  const locate = event => {
+    if (state !== 'playing' || event.target.closest('button')) return;
+    const box = surface.getBoundingClientRect();
+    moveRacket((event.clientX - box.left) / box.width, (event.clientY - box.top) / box.height);
+    if (motionMedia.matches) strike();
+  };
+  surface.addEventListener('pointermove', locate, {signal, passive:true});
+  surface.addEventListener('pointerdown', event => {
+    locate(event);
+    if (state === 'playing' && !event.target.closest('button')) {
+      if (event.pointerType !== 'mouse') surface.setPointerCapture(event.pointerId);
+      surface.focus({preventScroll:true}); strike();
+    }
+  }, {signal, passive:true});
+  surface.addEventListener('keydown', event => {
+    if (event.target !== surface) return;
+    if (event.code === 'Escape') {event.preventDefault(); pause(); return;}
+    if (event.code === 'Space' || event.code === 'Enter') {
+      event.preventDefault(); if (state !== 'playing') start(); else strike(); return;
+    }
+    const direction = {ArrowLeft:[-.055,0],ArrowRight:[.055,0],ArrowUp:[0,-.075],ArrowDown:[0,.075]}[event.code];
+    if (!direction || state !== 'playing') return;
+    event.preventDefault(); moveRacket(racketX + direction[0], racketY + direction[1]);
+    if (motionMedia.matches) strike();
+  }, {signal});
+  startButton.addEventListener('click', start, {signal});
+  pauseButton.addEventListener('click', pause, {signal});
+  root.querySelector('[data-game-reset]').addEventListener('click', reset, {signal});
+  const observer = new IntersectionObserver(entries => {if (!entries[0].isIntersecting) pause();}, {threshold:0});
+  observer.observe(surface);
+  document.addEventListener('visibilitychange', () => {if (document.hidden) pause();}, {signal});
   motionMedia.addEventListener('change', () => {
-    if (motion()) return;
-    cancelAnimationFrame(frame); frame = 0; points.length = 0;
-    ctx?.clearRect(0, 0, size.width, size.height);
-    surface?.classList.remove('is-tracking'); surface?.style.removeProperty('--arm-angle');
-  }, { signal });
-  return () => { controller.abort(); resize?.disconnect(); cancelAnimationFrame(frame); clearTimeout(hitTimer); };
+    stopFrame(); surface.classList.remove('tennis-hit'); if (state !== 'playing') return;
+    if (motionMedia.matches) {staticBall(); status.textContent = '移动球拍靠近网球，点击或按空格回球。';}
+    else frame = requestAnimationFrame(tick);
+  }, {signal});
+  reset();
+  return () => {controller.abort(); observer.disconnect(); stopFrame(); clearTimeout(swingTimer);};
 }
 
 
@@ -611,9 +713,9 @@ const star = '<svg viewBox="0 0 40 40" aria-hidden="true"><path d="M20 0 24 14 4
 const logo = '<span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 40 40"><path d="M7 34V18a13 13 0 0 1 26 0v16M15 34V19a5 5 0 0 1 10 0v15" stroke="currentColor" stroke-width="4.5" fill="none"/><circle cx="35" cy="6" r="3.5" fill="currentColor"/></svg></span><span class="brand-name">灵境筑梦</span>';
 
 function art(type = 'portal', className = '') {
+  if (type === 'device') return purchaseArt(`illustration product-news-device ${className}`);
   const body = {
     portal: '<ellipse cx="240" cy="287" rx="140" ry="20" fill="#202039" opacity=".1"/><path d="M125 275V160a115 115 0 0 1 230 0v115Z" fill="#a991f7"/><path d="M146 275V162a94 94 0 0 1 188 0v113Z" fill="#7057eb"/><path d="M173 275V164a67 67 0 0 1 134 0v111Z" fill="#cabaf7"/><path d="M195 275V166a45 45 0 0 1 90 0v109Z" fill="#f7f2e7"/><circle cx="344" cy="73" r="28" fill="#c7f36b"/><path d="m110 80 7 20 20 7-20 7-7 20-7-20-20-7 20-7Z" fill="#fff"/><path d="M196 275h90l40 30H156Z" fill="#9a80f1"/>',
-    device: '<ellipse cx="235" cy="285" rx="130" ry="19" fill="#202039" opacity=".1"/><path d="M115 160q0-24 26-30l127-32q20-5 39 5l58 33q20 11 20 32v72q0 20-21 26l-126 34q-20 5-38-6l-65-36q-20-10-20-30Z" fill="#f9f8f1"/><path d="m118 152 96 51 168-47v86q0 19-20 25l-127 34q-17 4-28-3l-71-39q-18-10-18-29Z" fill="#d6cce8"/><path d="m215 203 168-47v86q0 19-20 25l-129 35q-10 2-19 0Z" fill="#e8e2ef"/><ellipse cx="276" cy="229" rx="24" ry="29" transform="rotate(14 276 229)" fill="#26243c"/><ellipse cx="277" cy="229" rx="12" ry="16" transform="rotate(14 277 229)" fill="#7561ad"/><circle cx="281" cy="223" r="5" fill="#c7f36b"/><path d="m155 145 115-29 39 21-115 29Z" fill="#fff"/><circle cx="342" cy="241" r="3" fill="#7057eb"/><path d="M118 66h40m-20-20v40" stroke="#7057eb" stroke-width="7" stroke-linecap="round"/><circle cx="375" cy="80" r="18" fill="#c7f36b"/>',
     play: '<path d="M70 266h340" stroke="#fff" stroke-width="4"/><rect x="98" y="72" width="236" height="140" rx="14" fill="#34314d" transform="rotate(-5 216 142)"/><rect x="110" y="84" width="212" height="116" rx="6" fill="#7057eb" transform="rotate(-5 216 142)"/><path d="m174 152 45-42 44 55" fill="none" stroke="#c7f36b" stroke-width="14" stroke-linecap="round"/><circle cx="295" cy="99" r="17" fill="#ffac8d"/><circle cx="153" cy="181" r="18" fill="#f1a58d"/><path d="M142 203q10-10 25 0l14 52h-57Z" fill="#fcf7e8"/><path d="m145 253-14 35m32-35 14 35M143 213l-29-12m48 12 30-34" stroke="#fcf7e8" stroke-width="12" stroke-linecap="round"/><circle cx="311" cy="189" r="17" fill="#e9b8a1"/><path d="M301 211q10-8 22 0l15 42h-50Z" fill="#a992f5"/><path d="m301 252-13 35m36-35 13 35m-35-66-30-22m48 21 25-42" stroke="#a992f5" stroke-width="12" stroke-linecap="round"/><path d="m382 102 5 15 15 5-15 5-5 15-5-15-15-5 15-5Z" fill="#fff"/>',
     people: '<ellipse cx="240" cy="278" rx="155" ry="20" fill="#7057eb" opacity=".1"/><path d="M91 184q0-17 17-17h264q17 0 17 17v76H91Z" fill="#b8a1ed"/><path d="M78 206q0-18 18-18h15q18 0 18 18v55H78Zm275 0q0-18 18-18h15q18 0 18 18v55h-51Z" fill="#7057eb"/><rect x="120" y="218" width="245" height="40" rx="12" fill="#a58be5"/><circle cx="175" cy="137" r="21" fill="#eab394"/><path d="M155 165q20-12 39 0l12 62h-65Z" fill="#faf6e9"/><circle cx="253" cy="159" r="17" fill="#edb994"/><path d="M237 183q17-10 32 0l10 45h-55Z" fill="#c7f36b"/><circle cx="322" cy="134" r="21" fill="#cc977f"/><path d="M303 161q19-12 37 0l16 67h-65Z" fill="#ffad8c"/><path d="M174 184h39m39 17h40" stroke="#eab394" stroke-width="11" stroke-linecap="round"/><path d="m250 72 6 17 17 6-17 6-6 17-6-17-17-6 17-6Z" fill="#7057eb"/>',
     support: '<rect x="113" y="62" width="250" height="208" rx="20" fill="#fffaf0" transform="rotate(-6 238 166)"/><rect x="134" y="83" width="212" height="30" rx="8" fill="#c7f36b" transform="rotate(-6 240 98)"/><path d="M157 146h142M157 171h113M157 197h78" stroke="#bca9ec" stroke-width="10" stroke-linecap="round"/><circle cx="321" cy="240" r="47" fill="#7057eb"/><path d="m301 239 14 14 27-30" fill="none" stroke="#c7f36b" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/><circle cx="112" cy="87" r="21" fill="#ffad8c"/>',
