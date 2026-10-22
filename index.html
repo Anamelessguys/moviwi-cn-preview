@@ -602,6 +602,7 @@ function mountSiteChrome(root) {
   const reduced = matchMedia('(prefers-reduced-motion: reduce)');
   const mobile = matchMedia('(max-width: 900px)');
   let scrolled = scrollY > 130, pinned = false, hovered = false, hoverTimer = 0, navFrame = 0;
+  let scrollRevealed = false, lastScrollY = scrollY, scrollDirection = 0, scrollTravel = 0;
   let ringFrame = 0, pulseTimer = 0, hasPointer = false;
   let x = 0, y = 0, targetX = 0, targetY = 0;
   const ring = document.createElement('div');
@@ -610,7 +611,7 @@ function mountSiteChrome(root) {
   const menuOpen = () => root.querySelector('.menu-toggle')?.getAttribute('aria-expanded') === 'true';
   const update = () => {
     const focused = header.contains(document.activeElement) && document.activeElement !== reopen;
-    const expanded = !scrolled || pinned || hovered || focused || menuOpen();
+    const expanded = !scrolled || scrollRevealed || pinned || hovered || focused || menuOpen();
     header.classList.toggle('is-scrolled', scrolled);
     header.classList.toggle('is-expanded', expanded);
     content.inert = !expanded;
@@ -619,7 +620,7 @@ function mountSiteChrome(root) {
     collapse.hidden = !scrolled || !expanded;
   };
   const close = (restoreFocus = false) => {
-    pinned = hovered = false; clearTimeout(hoverTimer);
+    pinned = hovered = scrollRevealed = false; scrollTravel = 0; clearTimeout(hoverTimer);
     const menu = root.querySelector('.menu-toggle');
     if (menuOpen()) menu.click();
     if (header.contains(document.activeElement)) document.activeElement.blur();
@@ -631,8 +632,21 @@ function mountSiteChrome(root) {
     if (navFrame) return;
     navFrame = requestAnimationFrame(() => {
       navFrame = 0;
-      const next = scrolled ? scrollY > 70 : scrollY > 130;
-      if (next !== scrolled) { scrolled = next; hovered = false; pinned = false; clearTimeout(hoverTimer); }
+      const currentY = Math.max(0, Math.min(scrollY, Math.max(0, document.documentElement.scrollHeight - innerHeight)));
+      const delta = currentY - lastScrollY;
+      lastScrollY = currentY;
+      const next = scrolled ? currentY > 70 : currentY > 130;
+      if (next !== scrolled) {
+        scrolled = next; hovered = pinned = scrollRevealed = false;
+        scrollTravel = scrollDirection = 0; clearTimeout(hoverTimer);
+      }
+      if (scrolled && delta) {
+        const direction = Math.sign(delta);
+        if (direction !== scrollDirection) scrollTravel = 0;
+        scrollDirection = direction; scrollTravel += Math.abs(delta);
+        if (direction < 0 && scrollTravel >= 12) scrollRevealed = true;
+        else if (direction > 0 && scrollTravel >= 20) scrollRevealed = false;
+      }
       update();
     });
   };
@@ -659,7 +673,7 @@ function mountSiteChrome(root) {
     ring.classList.remove('is-visible');
     if (event.key === 'Escape' && scrolled && header.classList.contains('is-expanded')) close(true);
   }, { signal });
-  mobile.addEventListener('change', () => { pinned = false; hovered = false; update(); }, { signal });
+  mobile.addEventListener('change', () => { pinned = hovered = scrollRevealed = false; scrollTravel = 0; update(); }, { signal });
   update();
 
   const draw = () => {
