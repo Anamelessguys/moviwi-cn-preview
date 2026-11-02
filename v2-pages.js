@@ -1,7 +1,7 @@
-import {editorialListing,tutorialListing} from './v2-editorial.js?v=cdfd5a077273';
-import {brand, faqs} from './content.js?v=cdfd5a077273';
-import {roomArt, purchaseArt, gameArt} from './product.js?v=cdfd5a077273';
-import {games, categories, certificates, accounts, mediaNames} from './v2-content.js?v=cdfd5a077273';
+import {editorialListing,tutorialListing} from './v2-editorial.js?v=2a1780c03b45';
+import {brand, faqs} from './content.js?v=2a1780c03b45';
+import {roomArt, purchaseArt, gameArt} from './product.js?v=2a1780c03b45';
+import {games, categories, certificates, accounts, mediaNames} from './v2-content.js?v=2a1780c03b45';
 
 export const esc=v=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export const linkButton=(href,text,style='button-dark')=>`<a class="button ${style}" href="${href}">${text}</a>`;

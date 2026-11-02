@@ -1,4 +1,4 @@
-import {home,support,games,gameView,shops} from './apple-pages.js?v=cdfd5a077273';
+import {home,support,games,gameView,shops} from './apple-pages.js?v=2a1780c03b45';
 
 export function productNav(active='overview',overview='/product'){
   return `<nav class="product-nav" aria-label="RS-K1 产品导航"><div class="product-nav-inner"><a class="product-nav-name" href="${overview}">RS-K1</a><div class="product-nav-links"><a href="${overview}" ${active==='overview'?'aria-current="page"':''}>概览</a><a href="/product/guide" ${active==='guide'?'aria-current="page"':''}>使用指南</a><a href="/product/specs" ${active==='specs'?'aria-current="page"':''}>技术规格</a><a class="product-buy" href="${overview}#purchase">购买</a></div></div></nav>`;
