@@ -1,0 +1,65 @@
+<svg class="purchase-device"  xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 800" fill="none" role="img" aria-labelledby="moviwi-product-1-title moviwi-product-1-desc">
+  <title id="moviwi-product-1-title">RS-K1 橙黄产品插画</title>
+  <desc id="moviwi-product-1-desc">以 PANTONE 1365 C 橙黄为配色参考绘制的双层设备，保留左侧散热格栅、上层黑色双镜头面板和下层品牌面板。</desc>
+  <defs>
+    <linearGradient id="moviwi-product-1-shell" x1="610" y1="173" x2="649" y2="427" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffd99a"/><stop offset=".35" stop-color="#ffb549"/><stop offset=".7" stop-color="#eb982e"/><stop offset="1" stop-color="#bd6b1b"/>
+    </linearGradient>
+    <linearGradient id="moviwi-product-1-lid" x1="610" y1="177" x2="674" y2="324" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffe0a9"/><stop offset=".51" stop-color="#ffc66d"/><stop offset=".79" stop-color="#ffb549"/><stop offset="1" stop-color="#e99730"/>
+    </linearGradient>
+    <linearGradient id="moviwi-product-1-front" x1="697" y1="223" x2="748" y2="396" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffc568"/><stop offset=".4" stop-color="#ef9d32"/><stop offset=".78" stop-color="#ffbf5b"/><stop offset="1" stop-color="#d58022"/>
+    </linearGradient>
+    <linearGradient id="moviwi-product-1-end" x1="354" y1="280" x2="517" y2="401" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#ffcd7b"/><stop offset=".45" stop-color="#f2a53c"/><stop offset="1" stop-color="#c57a20"/>
+    </linearGradient>
+    <linearGradient id="moviwi-product-1-glass" x1="712" y1="268" x2="753" y2="359" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#161621"/><stop offset=".46" stop-color="#272633"/><stop offset="1" stop-color="#101018"/>
+    </linearGradient>
+    <linearGradient id="moviwi-product-1-rim" x1="367" y1="282" x2="494" y2="398" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#fff"/><stop offset=".45" stop-color="#dc8d29"/><stop offset="1" stop-color="#ffe1aa"/>
+    </linearGradient>
+    <radialGradient id="moviwi-product-1-lens">
+      <stop stop-color="#0c151f"/><stop offset=".26" stop-color="#112b39"/><stop offset=".42" stop-color="#285d69"/><stop offset=".55" stop-color="#121c29"/><stop offset=".74" stop-color="#353b48"/><stop offset=".85" stop-color="#141722"/><stop offset="1" stop-color="#737080"/>
+    </radialGradient>
+    <filter id="moviwi-product-1-shadow" x="-30%" y="-180%" width="160%" height="460%"><feGaussianBlur stdDeviation="14"/></filter>
+    <path id="moviwi-product-1-vent-shape" d="M382 277c-22-5-33 7-32 29l3 33c2 24 13 38 35 44l96 25c22 6 36-6 36-29l-3-26c-2-23-12-38-33-45Z"/>
+    <clipPath id="moviwi-product-1-vent-clip"><use href="#moviwi-product-1-vent-shape"/></clipPath>
+    <g id="moviwi-product-1-housing">
+      <path d="M345 318c-1-42 12-69 46-79l340-73c18-5 34-2 51 1l105 18c34 6 49 28 49 61l-1 33c-1 30-17 46-46 55l-352 86c-24 6-46 3-71-4l-82-19c-27-7-39-26-39-56Z" fill="url(#moviwi-product-1-shell)"/>
+      <path d="M512 320c15 5 27 2 42-3l360-101c15 6 22 19 22 36l-1 27c-1 30-17 46-46 55l-352 86c-9 3-19 4-28 2 20-18 22-44 16-65Z" fill="url(#moviwi-product-1-front)"/>
+      <path d="M351 291c4-25 15-43 40-50l340-73c18-5 34-2 51 1l105 18c23 4 37 16 43 34-15-5-30-2-48 3L549 321c-20 6-38 4-56-4l-113-39c-14-5-23-1-29 13Z" fill="url(#moviwi-product-1-lid)"/>
+      <path d="M349 301c-1-24 13-34 36-28l105 29c29 8 41 35 40 66-1 35-18 54-45 47l-101-25c-26-7-38-29-37-62Z" fill="url(#moviwi-product-1-end)"/>
+      <path d="m533 366 65-17m317-83 19-5" stroke="#fff" stroke-width="2.4" stroke-linecap="round" opacity=".86"/>
+      <path d="M355 286c8-11 20-14 36-9l98 27c23 6 37 27 39 53" stroke="#fff" stroke-width="1.6" stroke-linecap="round" opacity=".7"/>
+      <use href="#moviwi-product-1-vent-shape" fill="#1c1c27" stroke="#c1802c" stroke-width="5"/>
+      <g clip-path="url(#moviwi-product-1-vent-clip)">
+        <path d="m411 272 2 143m53-143 2 143" stroke="#5a5768" stroke-width="2"/>
+        <path d="m338 278 205 56m-205-45 205 56m-205-45 205 56m-205-45 205 56m-205-45 205 56m-205-45 205 56m-205-45 205 56m-205-45 205 56m-205-45 205 56m-205-45 205 56m-205-45 205 56m-205-45 205 56" stroke="#ffb549" stroke-width="3.1"/>
+      </g>
+      <use href="#moviwi-product-1-vent-shape" stroke="url(#moviwi-product-1-rim)" stroke-width="4"/>
+      <path d="m615 306 276-75c16-5 23 2 23 18l-2 25c-1 18-8 27-24 32l-261 77c-17 5-26-2-26-19v-22c0-18 3-30 14-36Z" fill="url(#moviwi-product-1-glass)"/>
+      <path d="m620 307 270-74c11-3 16-1 19 4" stroke="#6a657b" stroke-width="1" opacity=".5" stroke-linecap="round"/>
+      <path d="m545 410 342-85" stroke="#aa641b" stroke-width="1.5" opacity=".48"/>
+    </g>
+    <g id="moviwi-product-1-camera">
+      <ellipse rx="16" ry="23" fill="#0f101a" stroke="#5b586a" stroke-width="1.5"/>
+      <ellipse rx="12.3" ry="19.5" fill="url(#moviwi-product-1-lens)"/>
+      <ellipse rx="6.6" ry="11" fill="#09141e" stroke="#286272" stroke-width=".8"/>
+      <ellipse cx="3.2" cy="-7" rx="2.7" ry="4.2" fill="#a0dbeb" opacity=".8"/>
+      <path d="M-8 10q4 7 10 4" stroke="#7464b3" stroke-width="1.5" opacity=".65" stroke-linecap="round"/>
+    </g>
+  </defs>
+  <g transform="translate(-400 -105) scale(1.4)">
+    <ellipse cx="652" cy="564" rx="244" ry="22" fill="#584070" opacity=".21" filter="url(#moviwi-product-1-shadow)"/>
+    <g transform="translate(0 124)">
+      <use href="#moviwi-product-1-housing"/>
+      <text x="771" y="319" text-anchor="middle" fill="#e8e6f0" font-family="Arial, sans-serif" font-weight="600" font-size="15" letter-spacing=".1" transform="rotate(-16.5 771 319)">Moviwi</text>
+    </g>
+    <path d="m385 408 96 23q30 7 58 0l356-89" stroke="#5e566d" stroke-width="7" opacity=".15" stroke-linecap="round"/>
+    <use href="#moviwi-product-1-housing"/>
+    <use href="#moviwi-product-1-camera" transform="translate(714 321) rotate(17)"/>
+    <use href="#moviwi-product-1-camera" transform="translate(837 282) rotate(17) scale(.93)"/>
+  </g>
+</svg>

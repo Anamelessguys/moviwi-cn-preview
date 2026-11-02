@@ -1,7 +1,7 @@
-# 灵境筑梦官网 V2 预览
+# 实感智能官网预览
 
-预览地址：https://anamelessguys.github.io/moviwi-cn-preview/
+预览：https://anamelessguys.github.io/moviwi-cn-preview/
 
-此仓库用于分享官网 V2 的结构和交互预览。index.html 包含全部样式、脚本与图片，无需构建。文章、教程及部分产品资料仍为示例。
+本版包含正面三维开场、独立产品指南与规格页、品牌新闻、支持、三组页脚导航及法律页面。
 
-内页使用 page 查询参数，支持文章、教程、支持页签和首页锚点直接访问。
+静态 ES Modules，无构建步骤。GitHub Pages 内页通过 page 查询参数访问，页面内链接已适配。3D 模型及依赖均本地托管，保留依赖许可。未提供的性能数字不作宣传。
