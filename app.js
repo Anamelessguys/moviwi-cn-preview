@@ -10,9 +10,9 @@ function normalizePublicLinks(){
     target.hash=route.hash;a.href=target.href;
   });
 }
-import {header,footer,support,newsPage,article,about,notFound,gameView,categoryView,faqList,algorithms,certificatesDetail} from './apple-pages.js';
-import {overviewPage,guidePage,specsPage,gamesPage} from './product-navigation.js';
-import {termsPage,privacyPage} from './legal-pages.js';
+import {header,footer,support,newsPage,article,about,notFound,gameView,categoryView,faqList,algorithms,certificatesDetail} from './apple-pages.js?v=d39432fb4af4';
+import {overviewPage,guidePage,specsPage,gamesPage} from './product-navigation.js?v=d39432fb4af4';
+import {termsPage,privacyPage} from './legal-pages.js?v=d39432fb4af4';
 document.querySelector('#header').innerHTML=header();
 document.querySelector('#footer').innerHTML=footer();
 const main=document.querySelector('#main'),dialog=document.querySelector('#detail');
@@ -22,7 +22,7 @@ function mountProductIntro(){
   const id=++heroMountId,hero=main.querySelector('.hero');
   document.body.classList.toggle('has-product-intro',Boolean(hero));
   if(!hero)return;
-  import('./hero-intro.js').then(async({mountHeroIntro})=>{
+  import('./hero-intro.js?v=d39432fb4af4').then(async({mountHeroIntro})=>{
     if(id!==heroMountId)return;
     const cleanup=await mountHeroIntro(hero);
     if(id===heroMountId)heroCleanup=cleanup;else cleanup();

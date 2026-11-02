@@ -1,5 +1,5 @@
-import {news, tutorials} from './content.js';
-import {roomArt, purchaseArt} from './product.js';
+import {news, tutorials} from './content.js?v=d39432fb4af4';
+import {roomArt, purchaseArt} from './product.js?v=d39432fb4af4';
 
 const esc=v=>String(v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 function cover(item){return item.visual==='device'?purchaseArt('editorial-device'):roomArt(item.visual==='people'?'party':'family');}
