@@ -1,6 +1,6 @@
-import {brand, tutorials, faqs} from './content.js?v=d39432fb4af4';
-import {games,categories,certificates,accounts,mediaNames} from './v2-content.js?v=d39432fb4af4';
-import {scene,esc} from './v2-pages.js?v=d39432fb4af4';
+import {brand, tutorials, faqs} from './content.js?v=28d6860f5a4a';
+import {games,categories,certificates,accounts,mediaNames} from './v2-content.js?v=28d6860f5a4a';
+import {scene,esc} from './v2-pages.js?v=28d6860f5a4a';
 export {games,categories,tutorials};
 export const algorithms=['3D 测量','空间音视频结合','3D 场景结构化','人体物理 AI','3D 抠图','3D 建模','3D 手势识别','物体物理 AI','物理 AI SLAM','3D 人脸算法'];
 export const shops=[...brand.shops.slice(0,3),{name:'微信小店',logo:'/moviwi-cn-preview/assets/platforms/wechat.ico',url:'https://weixin.qq.com/'},brand.shops[3]];
