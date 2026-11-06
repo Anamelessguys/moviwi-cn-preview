@@ -10,9 +10,9 @@ function normalizePublicLinks(){
     target.hash=route.hash;a.href=target.href;
   });
 }
-import {header,footer,support,newsPage,article,about,notFound,gameView,categoryView,faqList,algorithms} from './apple-pages.js?v=5728891786b6';
-import {overviewPage,guidePage,specsPage,gamesPage} from './product-navigation.js?v=5728891786b6';
-import {termsPage,privacyPage} from './legal-pages.js?v=5728891786b6';
+import {header,footer,support,newsPage,article,about,notFound,gameView,categoryView,faqList,algorithms} from './apple-pages.js?v=ddc0e54012cf';
+import {overviewPage,guidePage,specsPage,gamesPage} from './product-navigation.js?v=ddc0e54012cf';
+import {termsPage,privacyPage} from './legal-pages.js?v=ddc0e54012cf';
 document.querySelector('#header').innerHTML=header();
 document.querySelector('#footer').innerHTML=footer();
 const main=document.querySelector('#main'),dialog=document.querySelector('#detail');
@@ -23,7 +23,7 @@ function mountProductIntro(){
   const id=++heroMountId,hero=main.querySelector('.hero');
   document.body.classList.toggle('has-product-intro',Boolean(hero));
   if(!hero)return;
-  import('./hero-intro.js?v=5728891786b6').then(async({mountHeroIntro})=>{
+  import('./hero-intro.js?v=ddc0e54012cf').then(async({mountHeroIntro})=>{
     if(id!==heroMountId)return;
     const cleanup=await mountHeroIntro(hero);
     if(id===heroMountId)heroCleanup=cleanup;else cleanup();
@@ -39,7 +39,7 @@ function updateScrollChrome(){
   chromeFrame=0;
   const scope=main.querySelector('.product-scope');
   if(scope){const bar=scope.querySelector('.product-nav'),bounds=scope.getBoundingClientRect();const active=!scope.hasAttribute('data-nav-after-banner')||bounds.top<=0;bar.classList.toggle('is-active',active);bar.inert=!active;}
-  topButton.hidden=scrollY<Math.max(300,innerHeight*.5);
+  topButton.hidden=scrollY<Math.max(300,innerHeight*.5);updateCarouselDock();
 }
 function queueScrollChrome(){if(!chromeFrame)chromeFrame=requestAnimationFrame(updateScrollChrome);}
 window.addEventListener('scroll',queueScrollChrome,{passive:true});window.addEventListener('resize',queueScrollChrome);
@@ -47,17 +47,21 @@ let revealObserver;
 const motionPreference=matchMedia('(prefers-reduced-motion: reduce)');
 function prepareReveals(){
   revealObserver?.disconnect();
-  const groups=main.querySelectorAll('.section-heading,.family-frame,.game-browser,.collection-layout,.optics-copy,.tech-intro,.tech-system,.tech-bottom,.product-copy,.rear-frame,.documents,.purchase,.page-hero,.story-grid,.news-status,.account-section .narrow,.content-section,.article');
+  const targets=main.querySelectorAll('h1,h2,h3:not([aria-describedby]),p:not([role=tooltip]),.text-link,.game-slide figcaption strong,.game-slide figcaption span,.support-cards strong,.support-cards span,.category-tabs button');
   if(motionPreference.matches||!('IntersectionObserver' in window))return;
-  revealObserver=new IntersectionObserver(entries=>{for(const entry of entries){if(entry.isIntersecting){entry.target.classList.add('is-visible');revealObserver.unobserve(entry.target);}}},{threshold:0,rootMargin:'0px 0px -30px 0px'});
-  groups.forEach(el=>{if(el.parentElement.closest('[data-reveal]'))return;el.dataset.reveal='';if(el.getBoundingClientRect().top<innerHeight-30)el.classList.add('is-visible');else revealObserver.observe(el);});
+  revealObserver=new IntersectionObserver(entries=>{for(const entry of entries){if(entry.isIntersecting){entry.target.classList.add('is-visible');revealObserver.unobserve(entry.target);}}},{threshold:.12,rootMargin:'0px 0px -20px 0px'});
+  targets.forEach(el=>{if(el.parentElement.closest('[data-reveal]'))return;el.dataset.reveal='';const siblings=Array.from(el.parentElement.children).filter(x=>x.matches('h1,h2,h3,p,.text-link,strong,span'));el.style.setProperty('--reveal-delay',Math.min(siblings.indexOf(el)*65,195)+'ms');revealObserver.observe(el);});
+}
+function updateCarouselDock(){
+  main.querySelectorAll('.game-carousel').forEach(carousel=>{const controls=carousel.querySelector('.game-carousel-controls'),slot=carousel.querySelector('.game-controls-slot');if(!slot)return;const bounds=carousel.getBoundingClientRect(),natural=slot.getBoundingClientRect();const height=controls.offsetHeight;const bottom=innerWidth<=760?18:26;const dockTop=innerHeight-bottom-height;const entered=innerHeight-bounds.top>=bounds.height*.3;const floating=entered&&natural.top>dockTop&&bounds.bottom>90;controls.classList.toggle('is-docked',floating);controls.style.setProperty('--dock-left',(bounds.left+bounds.width/2)+'px');controls.style.setProperty('--dock-bottom',bottom+'px');});
 }
 motionPreference.addEventListener('change',()=>{if(motionPreference.matches){revealObserver?.disconnect();main.querySelectorAll('[data-reveal]').forEach(el=>el.classList.add('is-visible'));}});
 
 function goGame(carousel,index){const track=carousel.querySelector('.game-slides'),slides=track.children;index=(index+slides.length)%slides.length;track.scrollTo({left:index*track.clientWidth,behavior:motionPreference.matches?'instant':'smooth'});}
-function prepareCarousels(){main.querySelectorAll('.game-carousel').forEach(carousel=>{const track=carousel.querySelector('.game-slides'),dots=Array.from(carousel.querySelectorAll('[data-game]'));let frame;const update=()=>{frame=0;const index=Math.round(track.scrollLeft/track.clientWidth);dots.forEach((dot,i)=>dot.setAttribute('aria-pressed',String(i===index)));};track.addEventListener('scroll',()=>{if(!frame)frame=requestAnimationFrame(update);},{passive:true});track.addEventListener('keydown',e=>{if(!['ArrowLeft','ArrowRight','Home','End'].includes(e.key))return;e.preventDefault();const index=e.key==='Home'?0:e.key==='End'?dots.length-1:Math.round(track.scrollLeft/track.clientWidth)+(e.key==='ArrowRight'?1:-1);goGame(carousel,index);});const observer=new ResizeObserver(()=>{const index=dots.findIndex(d=>d.getAttribute('aria-pressed')==='true');track.scrollTo({left:Math.max(0,index)*track.clientWidth,behavior:'instant'});});observer.observe(track);carouselObservers.push(observer);track.scrollTo({left:track.clientWidth,behavior:'instant'});update();});}
+function prepareCarousels(){main.querySelectorAll('.game-carousel').forEach(carousel=>{const controls=carousel.querySelector('.game-carousel-controls'),slot=document.createElement('div');slot.className='game-controls-slot';controls.before(slot);slot.append(controls);const track=carousel.querySelector('.game-slides'),dots=Array.from(carousel.querySelectorAll('[data-game]'));let frame;const update=()=>{frame=0;const index=Math.round(track.scrollLeft/track.clientWidth);dots.forEach((dot,i)=>dot.setAttribute('aria-pressed',String(i===index)));};track.addEventListener('scroll',()=>{if(!frame)frame=requestAnimationFrame(update);},{passive:true});track.addEventListener('keydown',e=>{if(!['ArrowLeft','ArrowRight','Home','End'].includes(e.key))return;e.preventDefault();const index=e.key==='Home'?0:e.key==='End'?dots.length-1:Math.round(track.scrollLeft/track.clientWidth)+(e.key==='ArrowRight'?1:-1);goGame(carousel,index);});const observer=new ResizeObserver(()=>{const index=dots.findIndex(d=>d.getAttribute('aria-pressed')==='true');track.scrollTo({left:Math.max(0,index)*track.clientWidth,behavior:'instant'});});observer.observe(track);carouselObservers.push(observer);track.scrollTo({left:track.clientWidth,behavior:'instant'});update();});}
 
-function render(){carouselObservers.forEach(o=>o.disconnect());carouselObservers=[];const path=previewRoute().pathname.replace(/\/$/,'')||'/';const segments=path.split('/').filter(Boolean);main.innerHTML=(path==='/'||path==='/product')?overviewPage(path):path==='/product/guide'?guidePage():path==='/product/specs'?specsPage():path==='/games'?gamesPage():path==='/terms'?termsPage():path==='/privacy'?privacyPage():path==='/support'?support(previewRoute().searchParams.get('tab')||'faq'):path==='/news'?newsPage():path==='/about'?about():segments.length===2&&['news','support'].includes(segments[0])?article(segments[1],segments[0]):notFound();document.title=`${(path==='/'||path==='/product')?'RS-K1':path==='/product/guide'?'使用指南':path==='/product/specs'?'技术规格':path==='/games'?'游戏中心':path==='/terms'?'使用条款':path==='/privacy'?'隐私政策':segments[0]==='support'?'使用与支持':segments[0]==='news'?'新闻中心':'关于我们'} · 实感智能`;normalizePublicLinks();closeMenu();mountProductIntro();prepareCarousels();prepareReveals();updateScrollChrome();if(location.hash)requestAnimationFrame(()=>document.getElementById(location.hash.slice(1))?.scrollIntoView({behavior:'instant'}));}
+function render(){carouselObservers.forEach(o=>o.disconnect());carouselObservers=[];const path=previewRoute().pathname.replace(/\/$/,'')||'/';const segments=path.split('/').filter(Boolean);main.innerHTML=(path==='/'||path==='/product')?overviewPage(path):path==='/product/guide'?guidePage():path==='/product/specs'?specsPage():path==='/games'?gamesPage():path==='/terms'?termsPage():path==='/privacy'?privacyPage():path==='/support'?support(previewRoute().searchParams.get('tab')||'faq'):path==='/news'?newsPage():path==='/about'?about():segments.length===2&&['news','support'].includes(segments[0])?article(segments[1],segments[0]):notFound();document.title=`${(path==='/'||path==='/product')?'RS-K1':path==='/product/guide'?'使用指南':path==='/product/specs'?'技术规格':path==='/games'?'游戏中心':path==='/terms'?'使用条款':path==='/privacy'?'隐私政策':segments[0]==='support'?'使用与支持':segments[0]==='news'?'新闻中心':'关于我们'} · 实感智能`;updateMainNav(path);normalizePublicLinks();closeMenu();mountProductIntro();prepareCarousels();prepareReveals();updateScrollChrome();if(location.hash)requestAnimationFrame(()=>document.getElementById(location.hash.slice(1))?.scrollIntoView({behavior:'instant'}));}
+function updateMainNav(path){const active=path==='/'||path.startsWith('/product')?'/product':'/'+path.split('/').filter(Boolean)[0];document.querySelectorAll('#navigation>a').forEach(a=>{const target=new URL(a.href).pathname;const route=new URL(a.href).searchParams.get('page')||target;if(route===active)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');});}
 function closeMenu(){document.querySelector('#menu').setAttribute('aria-expanded','false');document.querySelector('#menu').setAttribute('aria-label','展开导航');document.querySelector('#header').classList.remove('menu-open');}
 document.querySelector('#menu').addEventListener('click',()=>{const open=document.querySelector('#menu').getAttribute('aria-expanded')!=='true';document.querySelector('#menu').setAttribute('aria-expanded',String(open));document.querySelector('#menu').setAttribute('aria-label',open?'关闭导航':'展开导航');document.querySelector('#header').classList.toggle('menu-open',open);});
 function show(html){document.querySelector('#dialog-content').innerHTML=html;dialog.showModal();}
