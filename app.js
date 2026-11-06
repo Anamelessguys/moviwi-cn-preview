@@ -10,9 +10,9 @@ function normalizePublicLinks(){
     target.hash=route.hash;a.href=target.href;
   });
 }
-import {header,footer,support,newsPage,article,about,notFound,gameView,categoryView,faqList,algorithms} from './apple-pages.js?v=3911738a91ee';
-import {overviewPage,guidePage,specsPage,gamesPage} from './product-navigation.js?v=3911738a91ee';
-import {termsPage,privacyPage} from './legal-pages.js?v=3911738a91ee';
+import {header,footer,support,newsPage,article,about,notFound,gameView,categoryView,faqList,algorithms} from './apple-pages.js?v=be414bfa6a28';
+import {overviewPage,guidePage,specsPage,gamesPage} from './product-navigation.js?v=be414bfa6a28';
+import {termsPage,privacyPage} from './legal-pages.js?v=be414bfa6a28';
 document.querySelector('#header').innerHTML=header();
 document.querySelector('#footer').innerHTML=footer();
 const main=document.querySelector('#main'),dialog=document.querySelector('#detail');
@@ -23,7 +23,7 @@ function mountProductIntro(){
   const id=++heroMountId,hero=main.querySelector('.hero');
   document.body.classList.toggle('has-product-intro',Boolean(hero));
   if(!hero)return;
-  import('./hero-intro.js?v=3911738a91ee').then(async({mountHeroIntro})=>{
+  import('./hero-intro.js?v=be414bfa6a28').then(async({mountHeroIntro})=>{
     if(id!==heroMountId)return;
     const cleanup=await mountHeroIntro(hero);
     if(id===heroMountId)heroCleanup=cleanup;else cleanup();
@@ -47,10 +47,10 @@ let revealObserver;
 const motionPreference=matchMedia('(prefers-reduced-motion: reduce)');
 function prepareReveals(){
   revealObserver?.disconnect();
-  const targets=main.querySelectorAll('h1,h2,h3:not([aria-describedby]),p:not([role=tooltip]),.text-link,.game-slide figcaption strong,.game-slide figcaption span,.support-cards strong,.support-cards span,.category-tabs:not(.text-pagination) button');
+  const targets=main.querySelectorAll('h1,h2,h3:not([aria-describedby]),h4,p:not([role=tooltip]),.text-link,.game-slide figcaption strong,.game-slide figcaption span,.support-cards strong,.support-cards span,.category-tabs:not(.text-pagination) button');
   if(motionPreference.matches||!('IntersectionObserver' in window))return;
   revealObserver=new IntersectionObserver(entries=>{for(const entry of entries){if(entry.isIntersecting){entry.target.classList.add('is-visible');revealObserver.unobserve(entry.target);}}},{threshold:.12,rootMargin:'0px 0px -20px 0px'});
-  targets.forEach(el=>{if(el.parentElement.closest('[data-reveal]'))return;el.dataset.reveal='';const siblings=Array.from(el.parentElement.children).filter(x=>x.matches('h1,h2,h3,p,.text-link,strong,span'));el.style.setProperty('--reveal-delay',Math.min(siblings.indexOf(el)*65,195)+'ms');revealObserver.observe(el);});
+  targets.forEach(el=>{if(el.parentElement.closest('[data-reveal]'))return;el.dataset.reveal='';const siblings=Array.from(el.parentElement.children).filter(x=>x.matches('h1,h2,h3,h4,p,.text-link,strong,span'));el.style.setProperty('--reveal-delay',Math.min(siblings.indexOf(el)*65,195)+'ms');revealObserver.observe(el);});
 }
 function updateCarouselDock(){
   main.querySelectorAll('.floating-pagination-region').forEach(carousel=>{const controls=carousel.querySelector('.text-floating-pagination'),slot=carousel.querySelector('.game-controls-slot');if(!slot)return;const bounds=carousel.getBoundingClientRect(),natural=slot.getBoundingClientRect();const height=controls.offsetHeight;const bottom=innerWidth<=760?18:26;const dockTop=innerHeight-bottom-height;const entered=innerHeight-bounds.top>=bounds.height*.3;const floating=entered&&natural.top>dockTop&&bounds.bottom>90;controls.classList.toggle('is-docked',floating);controls.style.setProperty('--dock-left',(bounds.left+bounds.width/2)+'px');controls.style.setProperty('--dock-bottom',bottom+'px');});
