@@ -1,13 +1,13 @@
 export const games = [
   { id:'run', name:'酷跑', type:'奔跑 · 跳跃', color:'#f9ca64', scene:'run' },
   { id:'tennis', name:'网球', type:'挥拍 · 对打', color:'#a9e6ce', scene:'tennis' },
-  { id:'mole', name:'打地鼠', type:'反应 · 挑战', color:'#f6b8cc', scene:'mole' },
   { id:'ski', name:'滑雪', type:'平衡 · 闪躲', color:'#b8def5', scene:'ski' },
   { id:'pingpong', name:'乒乓球', type:'挥拍 · 节奏', color:'#d0c0ff', scene:'pingpong' },
+  { id:'sky', name:'冲向天空', type:'伸展 · 跳跃', color:'#c3cbf7', scene:'sky' },
+  { id:'mole', name:'打地鼠', type:'反应 · 挑战', color:'#f6b8cc', scene:'mole' },
   { id:'bowling', name:'保龄球', type:'瞄准 · 投掷', color:'#f7bc95', scene:'bowling' },
   { id:'kungfu', name:'功夫', type:'出拳 · 闪躲', color:'#c7e895', scene:'kungfu' },
   { id:'basket', name:'篮球机', type:'投篮 · 得分', color:'#f5ce9c', scene:'basket' },
-  { id:'sky', name:'冲向天空', type:'伸展 · 跳跃', color:'#c3cbf7', scene:'sky' },
 ];
 export const categories = [
   ['rhythm','音游','跟着节拍，动起来。','♪','#d7c7ff'],
