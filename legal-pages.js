@@ -1,4 +1,4 @@
-import {brand} from './content.js?v=be414bfa6a28';
+import {brand} from './content.js?v=47c6e29a0acc';
 const page=(title,sections)=>`<article class="article narrow legal-page"><h1>${title}</h1>${sections.map(([heading,copy])=>`<section><h2>${heading}</h2><p>${copy}</p></section>`).join('')}<section><h2>联系我们</h2><p>${brand.company}<br><a class="text-link" href="mailto:${brand.email}">${brand.email}</a></p></section></article>`;
 export const termsPage=()=>page('使用条款',[
  ['网站用途','本网站用于介绍实感智能的产品、技术、内容及服务信息。运营主体为天津灵境筑梦科技有限公司。'],
