@@ -10,9 +10,9 @@ function normalizePublicLinks(){
     target.hash=route.hash;a.href=target.href;
   });
 }
-import {header,footer,support,newsPage,article,about,notFound,gameView,categoryView,faqList,algorithms,certificatesDetail} from './apple-pages.js?v=65d1fef23d1f';
-import {overviewPage,guidePage,specsPage,gamesPage} from './product-navigation.js?v=65d1fef23d1f';
-import {termsPage,privacyPage} from './legal-pages.js?v=65d1fef23d1f';
+import {header,footer,support,newsPage,article,about,notFound,gameView,categoryView,faqList,algorithms} from './apple-pages.js?v=5728891786b6';
+import {overviewPage,guidePage,specsPage,gamesPage} from './product-navigation.js?v=5728891786b6';
+import {termsPage,privacyPage} from './legal-pages.js?v=5728891786b6';
 document.querySelector('#header').innerHTML=header();
 document.querySelector('#footer').innerHTML=footer();
 const main=document.querySelector('#main'),dialog=document.querySelector('#detail');
@@ -23,7 +23,7 @@ function mountProductIntro(){
   const id=++heroMountId,hero=main.querySelector('.hero');
   document.body.classList.toggle('has-product-intro',Boolean(hero));
   if(!hero)return;
-  import('./hero-intro.js?v=65d1fef23d1f').then(async({mountHeroIntro})=>{
+  import('./hero-intro.js?v=5728891786b6').then(async({mountHeroIntro})=>{
     if(id!==heroMountId)return;
     const cleanup=await mountHeroIntro(hero);
     if(id===heroMountId)heroCleanup=cleanup;else cleanup();
@@ -61,6 +61,6 @@ function render(){carouselObservers.forEach(o=>o.disconnect());carouselObservers
 function closeMenu(){document.querySelector('#menu').setAttribute('aria-expanded','false');document.querySelector('#menu').setAttribute('aria-label','展开导航');document.querySelector('#header').classList.remove('menu-open');}
 document.querySelector('#menu').addEventListener('click',()=>{const open=document.querySelector('#menu').getAttribute('aria-expanded')!=='true';document.querySelector('#menu').setAttribute('aria-expanded',String(open));document.querySelector('#menu').setAttribute('aria-label',open?'关闭导航':'展开导航');document.querySelector('#header').classList.toggle('menu-open',open);});
 function show(html){document.querySelector('#dialog-content').innerHTML=html;dialog.showModal();}
-document.addEventListener('click',e=>{const game=e.target.closest('[data-game]');if(game){const carousel=game.closest('.game-carousel');goGame(carousel,Array.from(carousel.querySelectorAll('[data-game]')).indexOf(game));}const step=e.target.closest('[data-game-step]');if(step){const carousel=step.closest('.game-carousel');const track=carousel.querySelector('.game-slides');goGame(carousel,Math.round(track.scrollLeft/track.clientWidth)+Number(step.dataset.gameStep));}const tech=e.target.closest('[data-tech-step]');if(tech){const track=tech.closest('.tech-capabilities').querySelector('.capability-track');track.scrollBy({left:Number(tech.dataset.techStep)*(track.querySelector('article').offsetWidth+24),behavior:motionPreference.matches?'instant':'smooth'});}const category=e.target.closest('[data-category]');if(category){document.querySelector('#category-stage').innerHTML=categoryView(category.dataset.category);document.querySelectorAll('[data-category]').forEach(b=>b.setAttribute('aria-pressed',String(b===category)));}if(e.target.closest('[data-certificates]'))show(certificatesDetail());const a=e.target.closest('a');if(a&&a.origin===location.origin&&!e.metaKey&&!e.ctrlKey&&!e.shiftKey&&!a.target){e.preventDefault();const samePage=a.pathname===location.pathname&&a.search===location.search;history.pushState({},'',a.href);if(samePage){closeMenu();if(a.hash)document.getElementById(a.hash.slice(1))?.scrollIntoView({behavior:'smooth'});else window.scrollTo({top:0,behavior:'instant'});}else{if(!a.hash)window.scrollTo({top:0,behavior:'instant'});render();}}});
+document.addEventListener('click',e=>{const game=e.target.closest('[data-game]');if(game){const carousel=game.closest('.game-carousel');goGame(carousel,Array.from(carousel.querySelectorAll('[data-game]')).indexOf(game));}const step=e.target.closest('[data-game-step]');if(step){const carousel=step.closest('.game-carousel');const track=carousel.querySelector('.game-slides');goGame(carousel,Math.round(track.scrollLeft/track.clientWidth)+Number(step.dataset.gameStep));}const tech=e.target.closest('[data-tech-step]');if(tech){const track=tech.closest('.tech-capabilities').querySelector('.capability-track');track.scrollBy({left:Number(tech.dataset.techStep)*(track.querySelector('article').offsetWidth+24),behavior:motionPreference.matches?'instant':'smooth'});}const category=e.target.closest('[data-category]');if(category){document.querySelector('#category-stage').innerHTML=categoryView(category.dataset.category);document.querySelectorAll('[data-category]').forEach(b=>b.setAttribute('aria-pressed',String(b===category)));}const a=e.target.closest('a');if(a&&a.origin===location.origin&&!e.metaKey&&!e.ctrlKey&&!e.shiftKey&&!a.target){e.preventDefault();const samePage=a.pathname===location.pathname&&a.search===location.search;history.pushState({},'',a.href);if(samePage){closeMenu();if(a.hash)document.getElementById(a.hash.slice(1))?.scrollIntoView({behavior:'smooth'});else window.scrollTo({top:0,behavior:'instant'});}else{if(!a.hash)window.scrollTo({top:0,behavior:'instant'});render();}}});
 document.addEventListener('input',e=>{if(e.target.id==='faq-search')document.querySelector('#faq-list').innerHTML=faqList(e.target.value.trim());});
 dialog.querySelector('.close').addEventListener('click',()=>dialog.close());dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}});document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu();});window.addEventListener('popstate',render);render();
